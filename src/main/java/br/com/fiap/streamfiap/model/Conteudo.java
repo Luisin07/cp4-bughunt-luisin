@@ -1,5 +1,6 @@
 package br.com.fiap.streamfiap.model;
 
+import br.com.fiap.streamfiap.exception.DadosInvalidosException;
 import jakarta.persistence.*;
 
 @Entity
@@ -22,6 +23,9 @@ public abstract class Conteudo {
     }
 
     protected Conteudo(String titulo, String categoria, int duracaoMinutos, int classificacaoEtaria, boolean disponivel) {
+        if (duracaoMinutos <= 0) {
+            throw new DadosInvalidosException("duracaoMinutos deve ser maior que zero, recebido: " + duracaoMinutos);
+        }
         this.titulo = titulo;
         this.categoria = categoria;
         this.duracaoMinutos = duracaoMinutos;
