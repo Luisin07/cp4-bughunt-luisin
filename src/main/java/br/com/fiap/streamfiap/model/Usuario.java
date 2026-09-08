@@ -4,10 +4,14 @@ import br.com.fiap.streamfiap.exception.ClassificacaoIndicativaException;
 import br.com.fiap.streamfiap.exception.ConteudoIndisponivelException;
 import br.com.fiap.streamfiap.exception.CreditosInsuficientesException;
 import jakarta.persistence.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Entity
 @Table(name = "usuarios")
 public class Usuario {
+
+    private static final Logger log = LoggerFactory.getLogger(Usuario.class);
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,14 +59,8 @@ public class Usuario {
         debitarCreditos(p);
         c.setDisponivel(false);
 
-        System.out.println("==================================================");
-        System.out.println("RECIBO STREAMFIAP");
-        System.out.println("Usuario: " + this.nome);
-        System.out.println("Conteudo: " + c.getTitulo());
-        System.out.println("Valor pago: R$ " + p);
-        System.out.println("Creditos restantes: R$ " + this.creditos);
-        System.out.println("Obrigado por usar o StreamFIAP!");
-        System.out.println("==================================================");
+        log.info("Aluguel efetivado - usuario={} conteudo={} valorPago={} creditosRestantes={}",
+                this.nome, c.getTitulo(), p, this.creditos);
 
         return this;
     }
