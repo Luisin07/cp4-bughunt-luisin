@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 @Entity
 public class Documentario extends Conteudo {
 
+    private static final double PRECO_GRATUITO = 0.00;
+
     private String tema;
 
     public Documentario() {
@@ -18,7 +20,7 @@ public class Documentario extends Conteudo {
     // documentário é sempre gratuito, conforme o contrato da API
     @Override
     public double calcularPrecoAluguel() {
-        return 0.00;
+        return PRECO_GRATUITO;
     }
 
     public String getTema() { return tema; }
