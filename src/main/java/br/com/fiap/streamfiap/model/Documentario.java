@@ -15,6 +15,12 @@ public class Documentario extends Conteudo {
         this.tema = tema;
     }
 
+    // documentário é sempre gratuito, conforme o contrato da API
+    @Override
+    public double calcularPrecoAluguel() {
+        return 0.00;
+    }
+
     public String getTema() { return tema; }
     public void setTema(String tema) { this.tema = tema; }
 }
