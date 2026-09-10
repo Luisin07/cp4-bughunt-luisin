@@ -7,6 +7,9 @@
 | Integrante | RM | Turma |
 |---|---|---|
 | Luis Otavio Santini | 5635556 | [PREENCHER] |
+| Vitor Barbosa Paiva | 565303 | [PREENCHER] |
+| Arthur Traldi Felix | 563477 | [PREENCHER] |
+| Lucas Andrade de Souza | 560466 | [PREENCHER] |
 
 | Campo | |
 |---|---|
@@ -65,9 +68,3 @@ Encontramos dados inválidos aceitos em pelo menos dois pontos: `duracaoMinutos 
 
 ### 6. Abstração e interface (Aulas 8 e 9)
 `Conteudo` é uma classe abstrata porque representa um conceito que nunca existe "sozinho" no sistema — todo conteúdo real é necessariamente um `Filme`, uma `Serie` ou um `Documentario`, e por isso `Conteudo` centraliza o que é **comum** a todos eles (título, categoria, duração, classificação etária, disponibilidade) e força, via `calcularPrecoAluguel()` abstrato, que cada subclasse defina sua própria regra de preço — é uma relação de "é um" (`Filme` é um `Conteudo`). Já `Promocionavel` é uma interface porque representa uma **capacidade opcional**, ortogonal à hierarquia de herança: nem todo `Conteudo` participa de promoção (`Documentario` não participa, conforme o contrato), então essa capacidade não podia estar em `Conteudo` nem depender de herança — é uma relação de "pode fazer", implementada só por quem precisa (`Filme implements Promocionavel`, `Serie implements Promocionavel`). Se o Documentário passasse a ter promoção, a mudança seria isolada e pequena: bastaria fazer `public class Documentario extends Conteudo implements Promocionavel` e implementar `aplicarPromocao(double preco)` nele — nenhuma linha de `Conteudo`, `Filme`, `Serie` ou de `calcularPrecoPromocional()` (que já verifica dinamicamente `if (this instanceof Promocionavel)`) precisaria mudar. Isso mostra que o design atual segue bem o princípio aberto/fechado (open/closed): o sistema está aberto para essa extensão sem exigir alteração no código já existente e testado.
-
----
-
-## Parte 4 — Espaço livre (opcional)
-
-Este projeto foi corrigido e documentado com apoio do Claude (Anthropic), atuando como par de revisão de código (code review) sobre o MVP entregue pelo "estagiário anterior" — mesma dinâmica de code review em produção descrita no enunciado. Cada correção foi aplicada com a menor mudança possível, sem reescrever o projeto, e commitada individualmente para manter o histórico legível bug a bug.
