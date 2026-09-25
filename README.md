@@ -6,10 +6,10 @@
 
 | Integrante | RM | Turma |
 |---|---|---|
-| Luis Otavio Santini | 5635556 | [2CCPW] |
+| Luis Otavio Santini | 5635556 | 2CCPW |
 | Vitor Barbosa Paiva | 565303 | 2CCPW |
 | Arthur Traldi Felix | 563477 | 2CCPW |
-| Lucas Andrade de Souza | 560466 | 2CCPW|
+| Lucas Andrade de Souza | 564066 | 2CCPW|
 
 | Campo | |
 |---|---|
